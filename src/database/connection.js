@@ -1,13 +1,13 @@
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize('projetofinalm4', 'root', '', {
+const sequelize = new Sequelize('projetofinalm4', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql'
 });
 
-const testConnection = async () => {
+const testConnection = () => {
     try{
-        await sequelize.authenticate();
+        sequelize.authenticate();
         console.log("Connection bem sucedida");
     } catch (error){
         console.log(`error: ${error}`)

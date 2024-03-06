@@ -11,6 +11,6 @@ app.use(routes)
 app.use(cors());
 
 app.listen(port, async () => {
-    await testConnection;
+    testConnection();
     console.log(`Server run on port: ${port}`)
 });
