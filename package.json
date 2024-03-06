@@ -2,7 +2,7 @@
   "name": "projetofinal-m4",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.3",
     "mysql2": "^3.9.2",
+    "pg": "^8.11.3",
     "sequelize": "^6.37.1"
   },
   "devDependencies": {

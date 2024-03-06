@@ -4,7 +4,7 @@ import { ERRORS, SUCESS } from "../shared/message.js";
 
 export class CompanyService {
     //Registrar empresa - CREATE
-    async registerCompany(company_name, adress, city){
+    async registerCompany(company_name, adress, city, cnpj){
         try {
             await CompanyEntity.sync();
 
@@ -21,7 +21,8 @@ export class CompanyService {
             await CompanyEntity.create({
                 company_name,
                 adress,
-                city
+                city,
+                cnpj
             })
 
             return `Empresa ${SUCESS.REGISTERED_F}. Nome: ${company_name}`
@@ -48,7 +49,7 @@ export class CompanyService {
         try {
             //Validação de dados
 
-            const validCNPJ = isCNPJvalid(cnpj);
+            const validCNPJ = await isCNPJvalid(cnpj);
 
             if(validCNPJ === false){
                 return `O CNPJ inserido ${ERRORS.NOT_REGISTERED}`
@@ -62,7 +63,7 @@ export class CompanyService {
                 where: {cnpj}
             })
 
-            return `Empresa ${SUCESS.UPDATED}! Novo nome: ${company_name}`
+            return `Empresa ${SUCESS.UPDATED}! Novo nome: ${newName}`
         } catch (error) {
             return error
         }
@@ -80,7 +81,7 @@ export class CompanyService {
             }
 
             await CompanyEntity.destroy({
-                where: cnpj
+                where: {cnpj}
             })
 
             return SUCESS.DELETE

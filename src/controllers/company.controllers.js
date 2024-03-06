@@ -3,9 +3,9 @@ import { CompanyService } from "../services/company.service.js";
 const instanceCompanyService = new CompanyService();
 
 export const registerCompany = async (req,res)=>{
-    const {company_name, adress, city} = req.body;
+    const {company_name, adress, city, cnpj} = req.body;
 
-    const newCompany = await instanceCompanyService.registerCompany(company_name, adress, city);
+    const newCompany = await instanceCompanyService.registerCompany(company_name, adress, city, cnpj);
 
     return res.status(201).json({newCompany})
 }

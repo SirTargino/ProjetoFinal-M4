@@ -6,4 +6,4 @@ export const companyRouter = Router();
 companyRouter.post("/registrar-empresa", registerCompany);
 companyRouter.get("/obter-empresas", getAllCompanies);
 companyRouter.put("/editar-empresa", updateCompany);
-companyRouter.delete("deletar-empresa", deleteCompany)
+companyRouter.delete("/deletar-empresa", deleteCompany)
