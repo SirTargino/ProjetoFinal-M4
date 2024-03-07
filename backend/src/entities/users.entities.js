@@ -1,5 +1,7 @@
 import { sequelize } from "../database/connection.js";
 
+import { LocaisEntity } from "./locais.entities.js";
+
 import { DataTypes, Sequelize, UUID } from "sequelize";
 
 export const UsersEntity = sequelize.define('Users', {

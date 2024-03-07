@@ -5,5 +5,5 @@ export const localRouter = Router();
 
 localRouter.post("/registrar-local", registerLocal);
 localRouter.get("/obter-locais", getAllLocais);
-localRouter.put("/editar-local", upadateLocais);
-localRouter.delete("/deletar-local", deleteLocais)
+localRouter.put("/editar-local/:id", upadateLocais);
+localRouter.delete("/deletar-local/:id", deleteLocais)

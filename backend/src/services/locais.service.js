@@ -1,4 +1,5 @@
 import { LocaisEntity } from "../entities/locais.entities.js"
+import { UsersEntity } from "../entities/users.entities.js";
 import { SUCESS, ERRORS } from "../shared/message.js"
 
 export class LocalServices{
@@ -6,9 +7,10 @@ export class LocalServices{
     async criarlocal(ecoponto_name, adress_ecoponto, city_ecoponto, description_ecoponto){
         try {
             await LocaisEntity.sync()
+  
+            await LocaisEntity.create({ecoponto_name, adress_ecoponto, city_ecoponto, description_ecoponto})
 
-            const novoEcoponto = await LocaisEntity.create({ecoponto_name, adress_ecoponto, city_ecoponto, description_ecoponto})
-            return `Local ${SUCESS.REGISTERED_M}`
+            return `Local ${SUCESS.REGISTERED_M}: ${ecoponto_name}`
             
         } catch (error) {
             return error
@@ -20,7 +22,6 @@ export class LocalServices{
         try {
             const todosLocais = await LocaisEntity.findAll({})
             return  todosLocais;
-    
         } catch (error) {
             return error
         }
@@ -35,7 +36,7 @@ export class LocalServices{
                 return `Local ${ERRORS.NOT_REGISTERED}`
             }
 
-            const  localAtualizado = await LocaisEntity.update({ecoponto_name:newecoponto_name, adress_ecoponto:newadress_ecoponto,
+            await LocaisEntity.update({ecoponto_name:newecoponto_name, adress_ecoponto:newadress_ecoponto,
                 city_ecoponto:newcity_ecoponto, description_ecoponto:newdescription_ecoponto},{where:{id}});
             return `Local ${SUCESS.UPDATED}`
             

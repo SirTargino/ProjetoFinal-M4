@@ -1,0 +1,46 @@
+#main-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cadastrar-empresa{
+    width: 80%;
+}
+
+#carouselExampleIndicators{
+    height: 400px;
+}
+
+#cards{
+    display: flex;
+    flex-direction: row;
+}
+
+ul{
+    background-color: #d4edda;
+    height: 75px;
+    display: flexbox;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: #155724;
+}
+
+li img{
+    height: 72px;
+}
+
+.input-group{
+    width: 80vw;
+}
+
+#locais-reciclagem{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
